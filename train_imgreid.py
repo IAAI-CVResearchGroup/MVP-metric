@@ -5,11 +5,11 @@ import os
 import sys
 import time
 import datetime
-import argparse
 import os.path as osp
 import numpy as np
 import scipy.io as sio
 import pdb
+import argparse
 
 import torch
 import torch.nn as nn
@@ -21,7 +21,7 @@ from torchreid import data_manager
 from torchreid.dataset_loader import ImageDataset 
 from torchreid import transforms as T
 from torchreid import models
-from torchreid.losses import CrossEntropyLabelSmooth, TripletLoss, KALoss, BA_TripletLoss, LiftedLoss
+from torchreid.losses import CrossEntropyLabelSmooth, TripletLoss, MVPLoss, BA_TripletLoss, LiftedLoss
 from torchreid.utils.iotools import save_checkpoint, check_isfile
 from torchreid.utils.avgmeter import AverageMeter
 from torchreid.utils.logger import Logger
@@ -115,18 +115,14 @@ parser.add_argument('--use-auto-samemargin', action='store_true', help="use auto
 parser.add_argument('--rerank', action='store_true', help="perform re-ranking")
 
 
-args = parser.parse_args()
-
-
 # for train
 args = parser.parse_args(['--root', './data/',
                           '--dataset', 'dukemtmcreid', #'market1501', # 'dukemtmcreid'
-                          '--gpu-devices','1',
-                          '--lamb', '200.0',
+                          '--gpu-devices','2',
                           '--margin', '200',
-                          '--same-margin', '0.0',
+                          '--same-margin', '200.0',
                           '--max-epoch', '200',
-                          '--eval-step', '2',
+                          '--eval-step', '1',
                        #   '--use-auto-samemargin', 
                           '--lr','0.0001']) 
 
@@ -207,12 +203,12 @@ def main():
 
     criterion_xent = nn.CrossEntropyLoss()
     criterion_htri = TripletLoss(margin=args.margin)
-    criterion_KA = KALoss(margin=args.margin, same_margin = args.same_margin, use_auto_samemargin = args.use_auto_samemargin)        
+    criterion_MVP = MVPLoss(margin=args.margin, same_margin = args.same_margin, use_auto_samemargin = args.use_auto_samemargin)        
     cirterion_lifted = LiftedLoss(margin=args.margin)
     cirterion_batri = BA_TripletLoss(margin=args.margin)
     
     if args.use_auto_samemargin == True:
-        G_params = [{'params': model.parameters(), 'lr': args.lr }, {'params': criterion_KA.auto_samemargin, 'lr': args.lr}]
+        G_params = [{'params': model.parameters(), 'lr': args.lr }, {'params': criterion_MVP.auto_samemargin, 'lr': args.lr}]
     else :
         G_params = [para for _, para in model.named_parameters()]
     
@@ -261,7 +257,7 @@ def main():
     for epoch in range(args.start_epoch, args.max_epoch):
         start_train_time = time.time()
         adjust_learning_rate(optimizer, epoch)
-        train(epoch, model, cirterion_batri, cirterion_lifted, criterion_xent, criterion_htri, criterion_KA, optimizer, trainloader, use_gpu)
+        train(epoch, model, cirterion_batri, cirterion_lifted, criterion_xent, criterion_htri, criterion_MVP, optimizer, trainloader, use_gpu)
         train_time += round(time.time() - start_train_time)
         
     
@@ -306,13 +302,13 @@ def main():
 
 
 
-def train(epoch, model, cirterion_batri, cirterion_lifted, criterion_xent, criterion_htri, criterion_KA, optimizer, trainloader, use_gpu):
+def train(epoch, model, cirterion_batri, cirterion_lifted, criterion_xent, criterion_htri, criterion_MVP, optimizer, trainloader, use_gpu):
     losses = AverageMeter()
     batch_time = AverageMeter()
     data_time = AverageMeter()
     losses_xent = AverageMeter()
-    losses_kapos = AverageMeter()
-    losses_kaneg = AverageMeter()
+    losses_mvppos = AverageMeter()
+    losses_mvpneg = AverageMeter()
     losses_batri = AverageMeter()
     losses_lifted = AverageMeter()
     losses_htri = AverageMeter()
@@ -333,26 +329,26 @@ def train(epoch, model, cirterion_batri, cirterion_lifted, criterion_xent, crite
         losses_xent.update(xent_loss.item(), pids.size(0))
         
         
-        htri_loss = criterion_htri(features, pids)
-        losses_htri.update(htri_loss.item(), pids.size(0))
+     #   htri_loss = criterion_htri(features, pids)
+     #   losses_htri.update(htri_loss.item(), pids.size(0))
         
         
-        lifted_loss = cirterion_lifted(features, pids)
-        losses_lifted.update(lifted_loss.item(), pids.size(0))
+     #   lifted_loss = cirterion_lifted(features, pids)
+     #   losses_lifted.update(lifted_loss.item(), pids.size(0))
         
         
-        batri_loss = cirterion_batri(features, pids)
-        losses_batri.update(batri_loss.item(), pids.size(0))
+     #   batri_loss = cirterion_batri(features, pids)
+     #   losses_batri.update(batri_loss.item(), pids.size(0))
         
         
-        loss_KA_pos = criterion_KA(features, features, pids, pids, mode = 'pos')
-        losses_kapos.update(loss_KA_pos.item(), pids.size(0))
+        loss_MVP_pos = criterion_MVP(features, features, pids, pids, mode = 'pos')
+        losses_mvppos.update(loss_MVP_pos.item(), pids.size(0))
         
-        loss_KA_neg = criterion_KA(features, features, pids, pids, mode = 'neg')
-        losses_kaneg.update(loss_KA_neg.item(), pids.size(0))
+        loss_MVP_neg = criterion_MVP(features, features, pids, pids, mode = 'neg')
+        losses_mvpneg.update(loss_MVP_neg.item(), pids.size(0))
         
        
-        loss = xent_loss + (1.0 / 20) * batri_loss
+        loss = xent_loss + (1.0 / 20) * (loss_MVP_pos + loss_MVP_neg)
         losses.update(loss.item(), pids.size(0))
         
         optimizer.zero_grad()
@@ -369,11 +365,11 @@ def train(epoch, model, cirterion_batri, cirterion_lifted, criterion_xent, crite
                    data_time=data_time),end='')
             print('Loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses), end='')
             print('xent_loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_xent), end='')
-            print('htri_loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_htri), end='')
-            print('lift_loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_lifted), end='')
-            print('batri_loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_batri), end='')
-            print('loss_KA_pos {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_kapos),end='')
-            print('loss_KA_neg {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_kaneg),end='')
+        #    print('htri_loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_htri), end='')
+        #    print('lift_loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_lifted), end='')
+        #    print('batri_loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_batri), end='')
+            print('loss_MVP_pos {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_mvppos),end='')
+            print('loss_MVP_neg {loss.val:.4f} ({loss.avg:.4f})\t'.format(loss = losses_mvpneg),end='')
             print()
             sys.stdout.flush()
         end = time.time()
@@ -385,9 +381,9 @@ def test(model, queryloader, galleryloader, use_gpu, ranks=[1, 5, 10, 20], retur
 
     with torch.no_grad():
         qf, q_pids, q_camids = [], [], []
-        for batch_idx, (imgs, pids, camids, caps) in enumerate(queryloader):
+        for batch_idx, (imgs, pids, camids, _) in enumerate(queryloader):
             if use_gpu:
-                imgs, caps = imgs.cuda(), caps.cuda()
+                imgs = imgs.cuda()
 
             end = time.time()
             imgs_batch = imgs
@@ -409,9 +405,9 @@ def test(model, queryloader, galleryloader, use_gpu, ranks=[1, 5, 10, 20], retur
         sys.stdout.flush()
 
         gf, g_pids, g_camids = [], [], []
-        for batch_idx, (imgs, pids, camids, caps) in enumerate(galleryloader):
+        for batch_idx, (imgs, pids, camids, _) in enumerate(galleryloader):
             if use_gpu:
-                imgs, caps = imgs.cuda(), caps.cuda()
+                imgs = imgs.cuda()
             
             end = time.time()
             imgs_batch = imgs

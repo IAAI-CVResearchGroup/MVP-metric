@@ -67,15 +67,17 @@ class KM_algorithm:
             
             
 
-class KALoss(nn.Module):
+class MVPLoss(nn.Module):
     """
-    KAloss.
+    MVPloss.
     Args:
-    - margin (float): margin for triplet.
+    - margin (float): negative margin for triplet.
+    - same_margin (float): pos margin for triplet.
+    - use_auto_samemargin (boolean): whether to use learnable samemargin.
     """
 
     def __init__(self, margin = 200.0, lamb=10.0, same_margin = 0.0, no_use_km = False, use_auto_samemargin = False):
-        super(KALoss, self).__init__()
+        super(MVPLoss, self).__init__()
         self.margin = margin
         self.relative_margin = margin - same_margin
         self.ranking_loss = nn.MarginRankingLoss(margin=margin)

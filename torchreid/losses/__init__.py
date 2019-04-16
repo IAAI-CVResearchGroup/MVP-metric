@@ -6,7 +6,7 @@ from .cross_entropy_loss import CrossEntropyLabelSmooth
 from .hard_mine_triplet_loss import TripletLoss
 from .center_loss import CenterLoss
 from .ring_loss import RingLoss
-from .ka_loss import KALoss
+from .mvp_loss import MVPLoss
 from .batch_all_triplet_loss import BA_TripletLoss
 from .lifted_loss import LiftedLoss
 

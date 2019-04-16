@@ -1,0 +1,213 @@
+==========
+Args:Namespace(arch='resnet50', cuhk03_classic_split=False, cuhk03_labeled=False, dataset='dukemtmcreid', eval_step=1, evaluate=False, gamma=0.1, gpu_devices='2', height=256, load_weights='', lr=0.0001, margin=200.0, max_epoch=200, num_instances=4, optim='adam', print_freq=10, rerank=False, resume='', root='./data/', same_margin=200.0, save_dir='log', seed=1, split_id=0, start_epoch=0, start_eval=0, stepsize=[20, 40, 100], test_batch=100, train_batch=32, use_auto_samemargin=False, use_cpu=False, use_metric_cuhk03=False, vis_ranked_res=False, wcont_only=False, weight_decay=0.0005, width=128, workers=4)
+==========
+Currently using GPU 2
+Initializing dataset dukemtmcreid
+This dataset has been downloaded.
+=> DukeMTMC-reID loaded
+Dataset statistics:
+  ------------------------------
+  subset   | # ids | # images
+  ------------------------------
+  train    |   702 |    16522
+  query    |   702 |     2228
+  gallery  |  1110 |    17661
+  ------------------------------
+  total    |  1404 |    36411
+  ------------------------------
+Initializing model: resnet50
+Model size: 23.508 M
+==> Start training
+0.0001
+Learning Rate: 0.000100
+Epoch: [1][10/482]	Time 0.249 (0.467)	Data 0.0001 (0.0479)	Loss 10.5126 (14.5393)	xent_loss 6.7359 (6.6052)	loss_MVP_pos 66.1111 (157.3903)	loss_MVP_neg 9.4229 (1.2926)	
+Epoch: [1][20/482]	Time 0.297 (0.367)	Data 0.0002 (0.0240)	Loss 9.1967 (12.0092)	xent_loss 6.8095 (6.6726)	loss_MVP_pos 12.1245 (88.1509)	loss_MVP_neg 35.6203 (18.5824)	
+Epoch: [1][30/482]	Time 0.266 (0.334)	Data 0.0001 (0.0161)	Loss 9.6646 (11.0216)	xent_loss 7.5347 (6.7100)	loss_MVP_pos 19.5923 (64.7134)	loss_MVP_neg 23.0039 (21.5177)	
+Epoch: [1][40/482]	Time 0.274 (0.317)	Data 0.0002 (0.0121)	Loss 9.4143 (10.5650)	xent_loss 6.9418 (6.8136)	loss_MVP_pos 28.3155 (53.7564)	loss_MVP_neg 21.1347 (21.2729)	
+Epoch: [1][50/482]	Time 0.262 (0.306)	Data 0.0002 (0.0097)	Loss 9.0744 (10.2836)	xent_loss 7.3796 (6.9107)	loss_MVP_pos 10.8379 (46.1806)	loss_MVP_neg 23.0591 (21.2770)	
+Epoch: [1][60/482]	Time 0.241 (0.299)	Data 0.0002 (0.0081)	Loss 8.7854 (10.0882)	xent_loss 7.0020 (6.9686)	loss_MVP_pos 12.4694 (40.8375)	loss_MVP_neg 23.1978 (21.5537)	
+Epoch: [1][70/482]	Time 0.251 (0.293)	Data 0.0001 (0.0070)	Loss 9.8088 (9.9785)	xent_loss 8.0969 (7.0430)	loss_MVP_pos 10.2223 (37.3353)	loss_MVP_neg 24.0165 (21.3750)	
+Epoch: [1][80/482]	Time 0.239 (0.287)	Data 0.0001 (0.0061)	Loss 9.2182 (9.8927)	xent_loss 7.6972 (7.1089)	loss_MVP_pos 18.4334 (34.9387)	loss_MVP_neg 11.9861 (20.7366)	
+Epoch: [1][90/482]	Time 0.268 (0.286)	Data 0.0001 (0.0055)	Loss 8.6612 (9.8076)	xent_loss 6.9521 (7.1393)	loss_MVP_pos 12.4342 (32.5285)	loss_MVP_neg 21.7476 (20.8376)	
+Epoch: [1][100/482]	Time 0.248 (0.283)	Data 0.0001 (0.0049)	Loss 9.3038 (9.7302)	xent_loss 7.9015 (7.1641)	loss_MVP_pos 13.2217 (30.7678)	loss_MVP_neg 14.8226 (20.5554)	
+Epoch: [1][110/482]	Time 0.248 (0.280)	Data 0.0001 (0.0045)	Loss 9.6918 (9.6459)	xent_loss 7.5262 (7.1561)	loss_MVP_pos 21.6076 (29.3687)	loss_MVP_neg 21.7047 (20.4280)	
+Epoch: [1][120/482]	Time 0.226 (0.278)	Data 0.0002 (0.0041)	Loss 9.1242 (9.6129)	xent_loss 7.5960 (7.2063)	loss_MVP_pos 23.9553 (28.0801)	loss_MVP_neg 6.6082 (20.0525)	
+Epoch: [1][130/482]	Time 0.262 (0.276)	Data 0.0001 (0.0038)	Loss 8.4163 (9.5550)	xent_loss 6.6341 (7.2149)	loss_MVP_pos 14.7837 (26.9747)	loss_MVP_neg 20.8602 (19.8274)	
+Epoch: [1][140/482]	Time 0.258 (0.274)	Data 0.0001 (0.0036)	Loss 8.1737 (9.4968)	xent_loss 6.8104 (7.2176)	loss_MVP_pos 18.3985 (26.1478)	loss_MVP_neg 8.8677 (19.4359)	
+Epoch: [1][150/482]	Time 0.245 (0.273)	Data 0.0001 (0.0033)	Loss 9.0015 (9.4416)	xent_loss 7.9047 (7.2257)	loss_MVP_pos 5.2030 (25.1201)	loss_MVP_neg 16.7325 (19.1981)	
+Epoch: [1][160/482]	Time 0.265 (0.271)	Data 0.0001 (0.0031)	Loss 8.3088 (9.3979)	xent_loss 6.8555 (7.2444)	loss_MVP_pos 10.4231 (24.1893)	loss_MVP_neg 18.6430 (18.8808)	
+Epoch: [1][170/482]	Time 0.231 (0.270)	Data 0.0003 (0.0030)	Loss 9.4758 (9.3659)	xent_loss 7.8725 (7.2538)	loss_MVP_pos 20.6587 (23.7518)	loss_MVP_neg 11.4068 (18.4889)	
+Epoch: [1][180/482]	Time 0.277 (0.269)	Data 0.0002 (0.0028)	Loss 8.8119 (9.3405)	xent_loss 7.5962 (7.2654)	loss_MVP_pos 10.2424 (23.0210)	loss_MVP_neg 14.0722 (18.4807)	
+Epoch: [1][190/482]	Time 0.247 (0.268)	Data 0.0002 (0.0027)	Loss 9.4028 (9.3049)	xent_loss 7.2234 (7.2689)	loss_MVP_pos 26.3513 (22.5726)	loss_MVP_neg 17.2352 (18.1480)	
+Epoch: [1][200/482]	Time 0.266 (0.268)	Data 0.0001 (0.0025)	Loss 8.5108 (9.2733)	xent_loss 7.0125 (7.2747)	loss_MVP_pos 6.8520 (21.9396)	loss_MVP_neg 23.1124 (18.0314)	
+Epoch: [1][210/482]	Time 0.241 (0.267)	Data 0.0001 (0.0024)	Loss 8.5537 (9.2339)	xent_loss 7.3206 (7.2641)	loss_MVP_pos 13.0994 (21.5391)	loss_MVP_neg 11.5630 (17.8575)	
+Epoch: [1][220/482]	Time 0.231 (0.267)	Data 0.0001 (0.0023)	Loss 7.5590 (9.1885)	xent_loss 6.4997 (7.2503)	loss_MVP_pos 14.2841 (21.1300)	loss_MVP_neg 6.9011 (17.6345)	
+Epoch: [1][230/482]	Time 0.252 (0.266)	Data 0.0001 (0.0022)	Loss 8.6230 (9.1560)	xent_loss 7.2093 (7.2471)	loss_MVP_pos 12.1166 (20.7345)	loss_MVP_neg 16.1567 (17.4431)	
+Epoch: [1][240/482]	Time 0.237 (0.265)	Data 0.0001 (0.0021)	Loss 7.9136 (9.1189)	xent_loss 7.2126 (7.2389)	loss_MVP_pos 6.1701 (20.3682)	loss_MVP_neg 7.8502 (17.2315)	
+Epoch: [1][250/482]	Time 0.233 (0.264)	Data 0.0001 (0.0021)	Loss 8.2461 (9.0839)	xent_loss 7.3064 (7.2297)	loss_MVP_pos 5.6786 (20.1009)	loss_MVP_neg 13.1158 (16.9839)	
+Epoch: [1][260/482]	Time 0.252 (0.264)	Data 0.0001 (0.0020)	Loss 8.2945 (9.0455)	xent_loss 6.8365 (7.2155)	loss_MVP_pos 9.8759 (19.8025)	loss_MVP_neg 19.2851 (16.7973)	
+Epoch: [1][270/482]	Time 0.246 (0.263)	Data 0.0001 (0.0019)	Loss 8.0525 (9.0074)	xent_loss 6.8766 (7.2027)	loss_MVP_pos 10.0736 (19.4224)	loss_MVP_neg 13.4442 (16.6729)	
+Epoch: [1][280/482]	Time 0.237 (0.263)	Data 0.0001 (0.0018)	Loss 9.5770 (8.9704)	xent_loss 7.9097 (7.1893)	loss_MVP_pos 15.8249 (19.1122)	loss_MVP_neg 17.5199 (16.5087)	
+Epoch: [1][290/482]	Time 0.234 (0.262)	Data 0.0002 (0.0018)	Loss 8.7029 (8.9394)	xent_loss 7.2102 (7.1760)	loss_MVP_pos 13.1909 (18.8728)	loss_MVP_neg 16.6632 (16.3957)	
+Epoch: [1][300/482]	Time 0.246 (0.262)	Data 0.0001 (0.0017)	Loss 7.8876 (8.9071)	xent_loss 6.9976 (7.1626)	loss_MVP_pos 2.1185 (18.6552)	loss_MVP_neg 15.6804 (16.2364)	
+Epoch: [1][310/482]	Time 0.260 (0.262)	Data 0.0001 (0.0017)	Loss 7.2949 (8.8715)	xent_loss 6.3064 (7.1462)	loss_MVP_pos 11.1861 (18.3850)	loss_MVP_neg 8.5848 (16.1223)	
+Epoch: [1][320/482]	Time 0.243 (0.261)	Data 0.0002 (0.0016)	Loss 8.1432 (8.8379)	xent_loss 7.2527 (7.1321)	loss_MVP_pos 5.0972 (18.1756)	loss_MVP_neg 12.7129 (15.9396)	
+Epoch: [1][330/482]	Time 0.236 (0.261)	Data 0.0001 (0.0016)	Loss 7.9521 (8.8163)	xent_loss 6.5691 (7.1252)	loss_MVP_pos 17.1490 (18.0221)	loss_MVP_neg 10.5124 (15.8017)	
+Epoch: [1][340/482]	Time 0.258 (0.261)	Data 0.0001 (0.0015)	Loss 8.2100 (8.7887)	xent_loss 6.8305 (7.1133)	loss_MVP_pos 6.1852 (17.7876)	loss_MVP_neg 21.4049 (15.7203)	
+Epoch: [1][350/482]	Time 0.247 (0.260)	Data 0.0001 (0.0015)	Loss 7.5513 (8.7655)	xent_loss 6.3410 (7.1013)	loss_MVP_pos 16.0524 (17.5771)	loss_MVP_neg 8.1535 (15.7083)	
+Epoch: [1][360/482]	Time 0.256 (0.260)	Data 0.0001 (0.0015)	Loss 7.5740 (8.7304)	xent_loss 6.6151 (7.0893)	loss_MVP_pos 14.8285 (17.3485)	loss_MVP_neg 4.3489 (15.4747)	
+Epoch: [1][370/482]	Time 0.252 (0.260)	Data 0.0001 (0.0014)	Loss 8.0654 (8.7043)	xent_loss 6.9556 (7.0746)	loss_MVP_pos 10.2464 (17.2188)	loss_MVP_neg 11.9505 (15.3743)	
+Epoch: [1][380/482]	Time 0.269 (0.260)	Data 0.0001 (0.0014)	Loss 7.0000 (8.6720)	xent_loss 6.1776 (7.0568)	loss_MVP_pos 10.7477 (17.0368)	loss_MVP_neg 5.7001 (15.2664)	
+Epoch: [1][390/482]	Time 0.246 (0.259)	Data 0.0002 (0.0014)	Loss 7.9163 (8.6459)	xent_loss 6.7074 (7.0427)	loss_MVP_pos 4.5871 (16.9276)	loss_MVP_neg 19.5907 (15.1370)	
+Epoch: [1][400/482]	Time 0.256 (0.259)	Data 0.0002 (0.0013)	Loss 7.3028 (8.6159)	xent_loss 5.9109 (7.0249)	loss_MVP_pos 17.9593 (16.7444)	loss_MVP_neg 9.8795 (15.0759)	
+Epoch: [1][410/482]	Time 0.259 (0.259)	Data 0.0001 (0.0013)	Loss 7.6100 (8.5855)	xent_loss 6.2622 (7.0039)	loss_MVP_pos 9.8792 (16.7117)	loss_MVP_neg 17.0766 (14.9212)	
+Epoch: [1][420/482]	Time 0.279 (0.258)	Data 0.0001 (0.0013)	Loss 6.7114 (8.5385)	xent_loss 5.7034 (6.9738)	loss_MVP_pos 6.6583 (16.4905)	loss_MVP_neg 13.5031 (14.8036)	
+Epoch: [1][430/482]	Time 0.258 (0.258)	Data 0.0001 (0.0012)	Loss 7.0066 (8.4973)	xent_loss 5.4227 (6.9459)	loss_MVP_pos 11.2754 (16.3461)	loss_MVP_neg 20.4027 (14.6816)	
+Epoch: [1][440/482]	Time 0.263 (0.258)	Data 0.0001 (0.0012)	Loss 5.8094 (8.4481)	xent_loss 5.0949 (6.9064)	loss_MVP_pos 5.0669 (16.2072)	loss_MVP_neg 9.2224 (14.6263)	
+Epoch: [1][450/482]	Time 0.258 (0.258)	Data 0.0001 (0.0012)	Loss 5.8690 (8.3841)	xent_loss 3.9475 (6.8490)	loss_MVP_pos 18.1492 (16.1366)	loss_MVP_neg 20.2820 (14.5660)	
+Epoch: [1][460/482]	Time 0.273 (0.258)	Data 0.0002 (0.0012)	Loss 3.6512 (8.3036)	xent_loss 2.7013 (6.7763)	loss_MVP_pos 8.5093 (15.9978)	loss_MVP_neg 10.4893 (14.5483)	
+==> Test
+Extracted features for query set, obtained 2228-by-2048 matrix
+Extracted features for gallery set, obtained 17661-by-2048 matrix
+==> BatchTime(s)/BatchSize(img): 0.054/100
+Computing CMC and mAP
+Results ----------
+mAP: 20.0%
+CMC curve
+Rank-1  : 38.4%
+Rank-5  : 55.2%
+Rank-10 : 62.4%
+Rank-20 : 69.7%
+[0.38420108 0.46140036 0.50089765 0.5336625  0.55206466 0.5664273
+ 0.5857271  0.60098743 0.61265707 0.62432677 0.63689405 0.6476661
+ 0.6548474  0.6660682  0.67100537 0.67863554 0.6835727  0.6858169
+ 0.6912029  0.6974865  0.70197487 0.70421904 0.70870733 0.71229804
+ 0.7158887  0.7226212  0.7253142  0.7307002  0.736535   0.73833036
+ 0.744614   0.7477558  0.7513465  0.7540395  0.75628364 0.760772
+ 0.76301616 0.76705563 0.7692998  0.77109516 0.7751346  0.7773788
+ 0.7787253  0.7800718  0.7814183  0.7841113  0.7854578  0.78770196
+ 0.7890485  0.79129267]
+------------------
+model saved
+9.5e-05
+Learning Rate: 0.000095
+Epoch: [2][10/482]	Time 0.238 (0.302)	Data 0.0002 (0.0669)	Loss 8.2900 (8.5310)	xent_loss 7.2188 (7.4020)	loss_MVP_pos 12.9707 (12.6194)	loss_MVP_neg 8.4534 (9.9607)	
+Epoch: [2][20/482]	Time 0.216 (0.273)	Data 0.0001 (0.0335)	Loss 8.0984 (8.4607)	xent_loss 7.3833 (7.3799)	loss_MVP_pos 8.4095 (10.6737)	loss_MVP_neg 5.8936 (10.9409)	
+Epoch: [2][30/482]	Time 0.196 (0.253)	Data 0.0001 (0.0224)	Loss 8.0345 (8.3045)	xent_loss 6.8111 (7.2375)	loss_MVP_pos 12.9255 (10.0392)	loss_MVP_neg 11.5438 (11.3010)	
+Epoch: [2][40/482]	Time 0.268 (0.247)	Data 0.0002 (0.0168)	Loss 7.8362 (8.1492)	xent_loss 7.3318 (7.1286)	loss_MVP_pos 2.4749 (9.8906)	loss_MVP_neg 7.6116 (10.5214)	
+Epoch: [2][50/482]	Time 0.250 (0.248)	Data 0.0001 (0.0135)	Loss 7.7403 (8.0636)	xent_loss 6.6478 (7.0533)	loss_MVP_pos 16.3904 (9.9368)	loss_MVP_neg 5.4602 (10.2682)	
+Epoch: [2][60/482]	Time 0.244 (0.247)	Data 0.0001 (0.0113)	Loss 7.4474 (7.9650)	xent_loss 6.2158 (6.9676)	loss_MVP_pos 16.8031 (10.1555)	loss_MVP_neg 7.8282 (9.7925)	
+Epoch: [2][70/482]	Time 0.240 (0.246)	Data 0.0001 (0.0097)	Loss 7.7092 (7.8933)	xent_loss 6.8667 (6.9293)	loss_MVP_pos 2.9060 (9.4655)	loss_MVP_neg 13.9451 (9.8153)	
+Epoch: [2][80/482]	Time 0.225 (0.244)	Data 0.0001 (0.0085)	Loss 6.1277 (7.8484)	xent_loss 5.5967 (6.8815)	loss_MVP_pos 4.8691 (9.6114)	loss_MVP_neg 5.7503 (9.7256)	
+Epoch: [2][90/482]	Time 0.245 (0.245)	Data 0.0001 (0.0075)	Loss 7.3619 (7.8055)	xent_loss 6.3437 (6.8300)	loss_MVP_pos 9.2676 (10.0099)	loss_MVP_neg 11.0962 (9.5003)	
+Epoch: [2][100/482]	Time 0.251 (0.245)	Data 0.0002 (0.0068)	Loss 7.5074 (7.7892)	xent_loss 6.1989 (6.7859)	loss_MVP_pos 14.6951 (10.1506)	loss_MVP_neg 11.4761 (9.9161)	
+Epoch: [2][110/482]	Time 0.274 (0.246)	Data 0.0002 (0.0062)	Loss 7.6676 (7.7500)	xent_loss 6.8896 (6.7529)	loss_MVP_pos 10.0378 (10.1141)	loss_MVP_neg 5.5225 (9.8265)	
+Epoch: [2][120/482]	Time 0.252 (0.246)	Data 0.0001 (0.0057)	Loss 6.8871 (7.7131)	xent_loss 6.3823 (6.7280)	loss_MVP_pos 6.8330 (9.9664)	loss_MVP_neg 3.2643 (9.7355)	
+Epoch: [2][130/482]	Time 0.207 (0.245)	Data 0.0001 (0.0053)	Loss 7.6391 (7.6953)	xent_loss 6.1987 (6.7066)	loss_MVP_pos 14.7697 (10.0592)	loss_MVP_neg 14.0391 (9.7162)	
+Epoch: [2][140/482]	Time 0.204 (0.242)	Data 0.0001 (0.0049)	Loss 6.9623 (7.6650)	xent_loss 6.0989 (6.6846)	loss_MVP_pos 10.6796 (9.9456)	loss_MVP_neg 6.5896 (9.6620)	
+Epoch: [2][150/482]	Time 0.228 (0.241)	Data 0.0001 (0.0046)	Loss 7.3649 (7.6341)	xent_loss 6.4809 (6.6637)	loss_MVP_pos 6.6487 (10.0272)	loss_MVP_neg 11.0308 (9.3811)	
+Epoch: [2][160/482]	Time 0.245 (0.241)	Data 0.0001 (0.0043)	Loss 7.5555 (7.6017)	xent_loss 6.4762 (6.6400)	loss_MVP_pos 6.1056 (9.8289)	loss_MVP_neg 15.4803 (9.4059)	
+Epoch: [2][170/482]	Time 0.226 (0.241)	Data 0.0001 (0.0041)	Loss 6.8685 (7.5834)	xent_loss 6.5427 (6.6235)	loss_MVP_pos 3.5926 (9.7797)	loss_MVP_neg 2.9235 (9.4182)	
+Epoch: [2][180/482]	Time 0.243 (0.240)	Data 0.0001 (0.0038)	Loss 7.7783 (7.5646)	xent_loss 6.1482 (6.6081)	loss_MVP_pos 12.1184 (9.8685)	loss_MVP_neg 20.4838 (9.2606)	
+Epoch: [2][190/482]	Time 0.240 (0.241)	Data 0.0001 (0.0036)	Loss 7.4914 (7.5546)	xent_loss 6.4921 (6.6035)	loss_MVP_pos 12.6249 (9.6952)	loss_MVP_neg 7.3606 (9.3257)	
+Epoch: [2][200/482]	Time 0.227 (0.241)	Data 0.0002 (0.0035)	Loss 6.9734 (7.5410)	xent_loss 6.2831 (6.5884)	loss_MVP_pos 7.7801 (9.7839)	loss_MVP_neg 6.0255 (9.2675)	
+Epoch: [2][210/482]	Time 0.219 (0.240)	Data 0.0001 (0.0033)	Loss 6.6231 (7.5221)	xent_loss 5.8228 (6.5655)	loss_MVP_pos 8.6389 (9.9979)	loss_MVP_neg 7.3666 (9.1337)	
+Epoch: [2][220/482]	Time 0.258 (0.239)	Data 0.0001 (0.0032)	Loss 6.6055 (7.4988)	xent_loss 5.9863 (6.5479)	loss_MVP_pos 9.5597 (9.8845)	loss_MVP_neg 2.8236 (9.1321)	
+Epoch: [2][230/482]	Time 0.202 (0.238)	Data 0.0001 (0.0030)	Loss 8.0308 (7.4902)	xent_loss 6.6790 (6.5395)	loss_MVP_pos 14.7777 (9.7826)	loss_MVP_neg 12.2581 (9.2307)	
+Epoch: [2][240/482]	Time 0.285 (0.238)	Data 0.0001 (0.0029)	Loss 7.0267 (7.4725)	xent_loss 6.2254 (6.5286)	loss_MVP_pos 2.8775 (9.7810)	loss_MVP_neg 13.1484 (9.0971)	
+Epoch: [2][250/482]	Time 0.252 (0.238)	Data 0.0001 (0.0028)	Loss 7.1963 (7.4520)	xent_loss 6.1607 (6.5132)	loss_MVP_pos 8.5791 (9.7408)	loss_MVP_neg 12.1329 (9.0349)	
+Epoch: [2][260/482]	Time 0.230 (0.238)	Data 0.0001 (0.0027)	Loss 7.4070 (7.4444)	xent_loss 6.2104 (6.5035)	loss_MVP_pos 4.8875 (9.7392)	loss_MVP_neg 19.0449 (9.0789)	
+Epoch: [2][270/482]	Time 0.233 (0.239)	Data 0.0001 (0.0026)	Loss 6.3850 (7.4362)	xent_loss 5.7149 (6.4948)	loss_MVP_pos 5.4701 (9.8607)	loss_MVP_neg 7.9303 (8.9675)	
+Epoch: [2][280/482]	Time 0.238 (0.239)	Data 0.0001 (0.0025)	Loss 6.5941 (7.4284)	xent_loss 5.9046 (6.4862)	loss_MVP_pos 10.1466 (9.9097)	loss_MVP_neg 3.6435 (8.9339)	
+Epoch: [2][290/482]	Time 0.229 (0.240)	Data 0.0001 (0.0024)	Loss 6.9431 (7.4162)	xent_loss 6.2494 (6.4814)	loss_MVP_pos 7.0689 (9.8277)	loss_MVP_neg 6.8053 (8.8694)	
+Epoch: [2][300/482]	Time 0.232 (0.240)	Data 0.0001 (0.0024)	Loss 6.2419 (7.3909)	xent_loss 5.6555 (6.4625)	loss_MVP_pos 11.4147 (9.7979)	loss_MVP_neg 0.3125 (8.7701)	
+Epoch: [2][310/482]	Time 0.224 (0.240)	Data 0.0001 (0.0023)	Loss 7.3974 (7.3827)	xent_loss 6.4301 (6.4500)	loss_MVP_pos 14.3709 (9.9128)	loss_MVP_neg 4.9739 (8.7407)	
+Epoch: [2][320/482]	Time 0.254 (0.240)	Data 0.0001 (0.0022)	Loss 5.9119 (7.3633)	xent_loss 5.4606 (6.4385)	loss_MVP_pos 1.2523 (9.7984)	loss_MVP_neg 7.7724 (8.6972)	
+Epoch: [2][330/482]	Time 0.232 (0.240)	Data 0.0001 (0.0022)	Loss 6.5940 (7.3536)	xent_loss 6.1565 (6.4300)	loss_MVP_pos 5.4398 (9.7680)	loss_MVP_neg 3.3106 (8.7051)	
+Epoch: [2][340/482]	Time 0.235 (0.240)	Data 0.0002 (0.0021)	Loss 6.6678 (7.3324)	xent_loss 5.9632 (6.4130)	loss_MVP_pos 8.3349 (9.8074)	loss_MVP_neg 5.7574 (8.5812)	
+Epoch: [2][350/482]	Time 0.228 (0.241)	Data 0.0001 (0.0020)	Loss 6.3330 (7.3147)	xent_loss 5.5943 (6.3959)	loss_MVP_pos 10.0662 (9.7907)	loss_MVP_neg 4.7066 (8.5868)	
+Epoch: [2][360/482]	Time 0.235 (0.241)	Data 0.0001 (0.0020)	Loss 6.1323 (7.2883)	xent_loss 5.6993 (6.3755)	loss_MVP_pos 4.5184 (9.6706)	loss_MVP_neg 4.1406 (8.5853)	
+Epoch: [2][370/482]	Time 0.218 (0.241)	Data 0.0001 (0.0019)	Loss 7.4039 (7.2677)	xent_loss 6.0049 (6.3558)	loss_MVP_pos 17.2083 (9.7504)	loss_MVP_neg 10.7720 (8.4868)	
+Epoch: [2][380/482]	Time 0.229 (0.241)	Data 0.0002 (0.0019)	Loss 6.3221 (7.2389)	xent_loss 5.7927 (6.3345)	loss_MVP_pos 6.7516 (9.6582)	loss_MVP_neg 3.8364 (8.4305)	
+Epoch: [2][390/482]	Time 0.246 (0.241)	Data 0.0001 (0.0018)	Loss 5.1641 (7.2132)	xent_loss 4.5722 (6.3130)	loss_MVP_pos 2.6743 (9.6363)	loss_MVP_neg 9.1622 (8.3666)	
+Epoch: [2][400/482]	Time 0.228 (0.242)	Data 0.0001 (0.0018)	Loss 6.3515 (7.1859)	xent_loss 5.6642 (6.2905)	loss_MVP_pos 7.4607 (9.5778)	loss_MVP_neg 6.2847 (8.3318)	
+Epoch: [2][410/482]	Time 0.220 (0.242)	Data 0.0001 (0.0018)	Loss 5.6219 (7.1470)	xent_loss 4.5577 (6.2595)	loss_MVP_pos 6.8537 (9.4913)	loss_MVP_neg 14.4293 (8.2589)	
+Epoch: [2][420/482]	Time 0.240 (0.242)	Data 0.0001 (0.0017)	Loss 6.2751 (7.1231)	xent_loss 5.3699 (6.2354)	loss_MVP_pos 14.3071 (9.5045)	loss_MVP_neg 3.7959 (8.2487)	
+Epoch: [2][430/482]	Time 0.237 (0.242)	Data 0.0001 (0.0017)	Loss 5.7903 (7.0856)	xent_loss 4.3590 (6.1991)	loss_MVP_pos 21.9720 (9.5066)	loss_MVP_neg 6.6525 (8.2237)	
+Epoch: [2][440/482]	Time 0.259 (0.242)	Data 0.0001 (0.0017)	Loss 3.9176 (7.0302)	xent_loss 3.5967 (6.1505)	loss_MVP_pos 5.3748 (9.4382)	loss_MVP_neg 1.0438 (8.1556)	
+Epoch: [2][450/482]	Time 0.242 (0.242)	Data 0.0002 (0.0016)	Loss 2.8795 (6.9718)	xent_loss 2.6916 (6.0894)	loss_MVP_pos 0.0000 (9.4450)	loss_MVP_neg 3.7571 (8.2018)	
+==> Test
+Extracted features for query set, obtained 2228-by-2048 matrix
+Extracted features for gallery set, obtained 17661-by-2048 matrix
+==> BatchTime(s)/BatchSize(img): 0.012/100
+Computing CMC and mAP
+Results ----------
+mAP: 33.6%
+CMC curve
+Rank-1  : 53.9%
+Rank-5  : 70.4%
+Rank-10 : 77.3%
+Rank-20 : 82.9%
+[0.5390485  0.6099641  0.64856374 0.67908436 0.7037702  0.72621185
+ 0.74281865 0.7513465  0.76526034 0.7728905  0.7805206  0.7868043
+ 0.79308796 0.8016158  0.8061041  0.8105925  0.8191203  0.82360864
+ 0.8258528  0.8285458  0.8307899  0.8352783  0.83797127 0.8411131
+ 0.84290844 0.84560144 0.84874326 0.8518851  0.8550269  0.8559246
+ 0.85951525 0.86041296 0.86265707 0.8662478  0.87028724 0.8720826
+ 0.87342906 0.87432677 0.8747756  0.87612206 0.87657094 0.8774686
+ 0.87836623 0.87971276 0.8810592  0.8837522  0.88420105 0.8855476
+ 0.88689405 0.88734293]
+------------------
+model saved
+9.025e-05
+Learning Rate: 0.000090
+Epoch: [3][10/482]	Time 0.263 (0.306)	Data 0.0001 (0.0542)	Loss 7.6986 (7.6505)	xent_loss 7.0376 (7.0232)	loss_MVP_pos 10.3075 (7.2679)	loss_MVP_neg 2.9108 (5.2787)	
+Epoch: [3][20/482]	Time 0.248 (0.275)	Data 0.0001 (0.0271)	Loss 4.9433 (7.5160)	xent_loss 4.7692 (6.7496)	loss_MVP_pos 0.1216 (8.7684)	loss_MVP_neg 3.3604 (6.5611)	
+Epoch: [3][30/482]	Time 0.259 (0.265)	Data 0.0002 (0.0182)	Loss 6.1770 (7.3843)	xent_loss 5.6031 (6.6271)	loss_MVP_pos 3.8878 (8.9146)	loss_MVP_neg 7.5890 (6.2297)	
+Epoch: [3][40/482]	Time 0.249 (0.262)	Data 0.0001 (0.0137)	Loss 6.4590 (7.2598)	xent_loss 6.2736 (6.5083)	loss_MVP_pos 0.1969 (8.2573)	loss_MVP_neg 3.5095 (6.7715)	
+Epoch: [3][50/482]	Time 0.256 (0.259)	Data 0.0001 (0.0110)	Loss 6.4396 (7.1589)	xent_loss 5.8582 (6.4060)	loss_MVP_pos 6.7947 (8.4954)	loss_MVP_neg 4.8329 (6.5620)	
+Epoch: [3][60/482]	Time 0.284 (0.258)	Data 0.0002 (0.0092)	Loss 7.3333 (7.0991)	xent_loss 6.6076 (6.3588)	loss_MVP_pos 6.2812 (8.2939)	loss_MVP_neg 8.2325 (6.5104)	
+Epoch: [3][70/482]	Time 0.259 (0.257)	Data 0.0001 (0.0079)	Loss 7.0812 (7.0784)	xent_loss 6.0292 (6.3070)	loss_MVP_pos 17.0497 (8.6320)	loss_MVP_neg 3.9901 (6.7963)	
+Epoch: [3][80/482]	Time 0.230 (0.255)	Data 0.0002 (0.0069)	Loss 6.4774 (7.0113)	xent_loss 6.0050 (6.2562)	loss_MVP_pos 2.3206 (8.3183)	loss_MVP_neg 7.1284 (6.7853)	
+Epoch: [3][90/482]	Time 0.232 (0.253)	Data 0.0001 (0.0062)	Loss 6.7582 (6.9775)	xent_loss 5.6701 (6.2369)	loss_MVP_pos 18.0533 (8.3401)	loss_MVP_neg 3.7090 (6.4725)	
+Epoch: [3][100/482]	Time 0.224 (0.252)	Data 0.0001 (0.0056)	Loss 6.7757 (6.9632)	xent_loss 5.8037 (6.2240)	loss_MVP_pos 8.1570 (8.4137)	loss_MVP_neg 11.2829 (6.3706)	
+Epoch: [3][110/482]	Time 0.247 (0.251)	Data 0.0001 (0.0051)	Loss 7.2327 (6.9292)	xent_loss 6.3608 (6.1924)	loss_MVP_pos 6.8558 (8.2662)	loss_MVP_neg 10.5831 (6.4695)	
+Epoch: [3][120/482]	Time 0.229 (0.250)	Data 0.0003 (0.0047)	Loss 6.5106 (6.9179)	xent_loss 5.6621 (6.1780)	loss_MVP_pos 11.9383 (8.1784)	loss_MVP_neg 5.0334 (6.6190)	
+Epoch: [3][130/482]	Time 0.239 (0.250)	Data 0.0002 (0.0043)	Loss 5.8381 (6.8716)	xent_loss 5.1299 (6.1422)	loss_MVP_pos 9.0309 (8.0471)	loss_MVP_neg 5.1341 (6.5410)	
+Epoch: [3][140/482]	Time 0.218 (0.250)	Data 0.0001 (0.0040)	Loss 6.6721 (6.8445)	xent_loss 5.4809 (6.1189)	loss_MVP_pos 17.5257 (7.9902)	loss_MVP_neg 6.2974 (6.5214)	
+Epoch: [3][150/482]	Time 0.246 (0.250)	Data 0.0002 (0.0037)	Loss 7.3722 (6.8337)	xent_loss 6.0733 (6.1031)	loss_MVP_pos 7.6150 (8.0026)	loss_MVP_neg 18.3625 (6.6086)	
+Epoch: [3][160/482]	Time 0.250 (0.250)	Data 0.0001 (0.0035)	Loss 7.8244 (6.8236)	xent_loss 6.4311 (6.0947)	loss_MVP_pos 13.3471 (8.0249)	loss_MVP_neg 14.5195 (6.5518)	
+Epoch: [3][170/482]	Time 0.249 (0.250)	Data 0.0002 (0.0033)	Loss 7.6318 (6.8189)	xent_loss 6.3559 (6.0863)	loss_MVP_pos 13.4643 (8.0319)	loss_MVP_neg 12.0543 (6.6202)	
+Epoch: [3][180/482]	Time 0.215 (0.250)	Data 0.0003 (0.0031)	Loss 6.1301 (6.7997)	xent_loss 5.3150 (6.0636)	loss_MVP_pos 13.0639 (8.1005)	loss_MVP_neg 3.2389 (6.6208)	
+Epoch: [3][190/482]	Time 0.257 (0.250)	Data 0.0001 (0.0030)	Loss 6.7189 (6.7811)	xent_loss 6.1470 (6.0479)	loss_MVP_pos 1.9206 (8.1061)	loss_MVP_neg 9.5180 (6.5587)	
+Epoch: [3][200/482]	Time 0.242 (0.249)	Data 0.0001 (0.0028)	Loss 6.1498 (6.7697)	xent_loss 5.5016 (6.0319)	loss_MVP_pos 6.0565 (8.1746)	loss_MVP_neg 6.9076 (6.5799)	
+Epoch: [3][210/482]	Time 0.212 (0.249)	Data 0.0003 (0.0027)	Loss 7.1880 (6.7394)	xent_loss 6.1729 (6.0094)	loss_MVP_pos 7.8344 (8.1311)	loss_MVP_neg 12.4685 (6.4679)	
+Epoch: [3][220/482]	Time 0.239 (0.249)	Data 0.0002 (0.0026)	Loss 7.3647 (6.7211)	xent_loss 6.2316 (5.9929)	loss_MVP_pos 17.1092 (8.1393)	loss_MVP_neg 5.5526 (6.4248)	
+Epoch: [3][230/482]	Time 0.239 (0.249)	Data 0.0001 (0.0025)	Loss 7.4811 (6.6997)	xent_loss 5.9349 (5.9718)	loss_MVP_pos 8.6424 (8.0935)	loss_MVP_neg 22.2826 (6.4641)	
+Epoch: [3][240/482]	Time 0.246 (0.249)	Data 0.0001 (0.0024)	Loss 5.6731 (6.6771)	xent_loss 5.3641 (5.9538)	loss_MVP_pos 2.9068 (8.0037)	loss_MVP_neg 3.2728 (6.4626)	
+Epoch: [3][250/482]	Time 0.237 (0.249)	Data 0.0002 (0.0023)	Loss 6.5158 (6.6565)	xent_loss 5.6882 (5.9364)	loss_MVP_pos 8.1670 (7.9850)	loss_MVP_neg 8.3851 (6.4170)	
+Epoch: [3][260/482]	Time 0.231 (0.248)	Data 0.0004 (0.0022)	Loss 5.8531 (6.6483)	xent_loss 5.6201 (5.9290)	loss_MVP_pos 2.2973 (7.9721)	loss_MVP_neg 2.3645 (6.4128)	
+Epoch: [3][270/482]	Time 0.230 (0.248)	Data 0.0001 (0.0022)	Loss 6.5601 (6.6246)	xent_loss 5.7509 (5.9104)	loss_MVP_pos 13.2790 (7.8817)	loss_MVP_neg 2.9047 (6.4014)	
+Epoch: [3][280/482]	Time 0.254 (0.248)	Data 0.0001 (0.0021)	Loss 6.2705 (6.6034)	xent_loss 5.7482 (5.8912)	loss_MVP_pos 5.7278 (7.9352)	loss_MVP_neg 4.7192 (6.3096)	
+Epoch: [3][290/482]	Time 0.280 (0.248)	Data 0.0002 (0.0020)	Loss 5.6823 (6.5770)	xent_loss 4.9170 (5.8719)	loss_MVP_pos 12.0656 (7.9304)	loss_MVP_neg 3.2402 (6.1726)	
+Epoch: [3][300/482]	Time 0.252 (0.248)	Data 0.0001 (0.0020)	Loss 6.7018 (6.5589)	xent_loss 5.3798 (5.8535)	loss_MVP_pos 16.9149 (7.9284)	loss_MVP_neg 9.5265 (6.1802)	
+Epoch: [3][310/482]	Time 0.269 (0.248)	Data 0.0001 (0.0019)	Loss 6.0443 (6.5413)	xent_loss 5.2512 (5.8351)	loss_MVP_pos 5.4706 (7.9267)	loss_MVP_neg 10.3911 (6.1971)	
+Epoch: [3][320/482]	Time 0.236 (0.248)	Data 0.0001 (0.0018)	Loss 5.6325 (6.5186)	xent_loss 5.3574 (5.8220)	loss_MVP_pos 0.8635 (7.7963)	loss_MVP_neg 4.6391 (6.1354)	
+Epoch: [3][330/482]	Time 0.283 (0.248)	Data 0.0001 (0.0018)	Loss 6.6763 (6.5029)	xent_loss 5.3818 (5.8075)	loss_MVP_pos 18.7731 (7.8064)	loss_MVP_neg 7.1175 (6.1009)	
+Epoch: [3][340/482]	Time 0.246 (0.248)	Data 0.0002 (0.0017)	Loss 5.4143 (6.4777)	xent_loss 5.0795 (5.7882)	loss_MVP_pos 2.4791 (7.7922)	loss_MVP_neg 4.2158 (5.9979)	
+Epoch: [3][350/482]	Time 0.217 (0.247)	Data 0.0001 (0.0017)	Loss 5.2197 (6.4644)	xent_loss 4.8006 (5.7731)	loss_MVP_pos 4.6374 (7.8578)	loss_MVP_neg 3.7453 (5.9680)	
+Epoch: [3][360/482]	Time 0.230 (0.247)	Data 0.0002 (0.0017)	Loss 6.6042 (6.4484)	xent_loss 5.5013 (5.7588)	loss_MVP_pos 14.9470 (7.8432)	loss_MVP_neg 7.1107 (5.9478)	
+Epoch: [3][370/482]	Time 0.256 (0.248)	Data 0.0002 (0.0016)	Loss 5.4151 (6.4279)	xent_loss 5.0048 (5.7408)	loss_MVP_pos 7.5744 (7.8245)	loss_MVP_neg 0.6317 (5.9184)	
+Epoch: [3][380/482]	Time 0.302 (0.248)	Data 0.0002 (0.0016)	Loss 5.5960 (6.4041)	xent_loss 4.6865 (5.7207)	loss_MVP_pos 13.7135 (7.7744)	loss_MVP_neg 4.4765 (5.8930)	
+Epoch: [3][390/482]	Time 0.280 (0.248)	Data 0.0001 (0.0015)	Loss 4.4643 (6.3734)	xent_loss 4.2212 (5.6947)	loss_MVP_pos 4.8613 (7.7647)	loss_MVP_neg 0.0000 (5.8093)	
+Epoch: [3][400/482]	Time 0.251 (0.248)	Data 0.0001 (0.0015)	Loss 5.2285 (6.3459)	xent_loss 4.7565 (5.6697)	loss_MVP_pos 5.4204 (7.7336)	loss_MVP_neg 4.0185 (5.7904)	
+Epoch: [3][410/482]	Time 0.248 (0.248)	Data 0.0001 (0.0015)	Loss 5.6959 (6.3105)	xent_loss 4.5976 (5.6344)	loss_MVP_pos 14.5401 (7.7727)	loss_MVP_neg 7.4262 (5.7493)	
+Epoch: [3][420/482]	Time 0.218 (0.248)	Data 0.0001 (0.0014)	Loss 4.4298 (6.2698)	xent_loss 4.2585 (5.5997)	loss_MVP_pos 3.4270 (7.7061)	loss_MVP_neg 0.0000 (5.6945)	
+Epoch: [3][430/482]	Time 0.261 (0.248)	Data 0.0001 (0.0014)	Loss 4.7527 (6.2203)	xent_loss 3.6765 (5.5546)	loss_MVP_pos 19.7763 (7.6750)	loss_MVP_neg 1.7478 (5.6397)	
+Epoch: [3][440/482]	Time 0.275 (0.248)	Data 0.0001 (0.0014)	Loss 4.8915 (6.1709)	xent_loss 3.2466 (5.5018)	loss_MVP_pos 26.6548 (7.7481)	loss_MVP_neg 6.2437 (5.6323)	
+Epoch: [3][450/482]	Time 0.234 (0.248)	Data 0.0002 (0.0014)	Loss 2.3861 (6.1039)	xent_loss 2.0031 (5.4358)	loss_MVP_pos 5.0785 (7.7481)	loss_MVP_neg 2.5816 (5.6126)	
+==> Test
+Extracted features for query set, obtained 2228-by-2048 matrix
+Extracted features for gallery set, obtained 17661-by-2048 matrix
+==> BatchTime(s)/BatchSize(img): 0.012/100
+Computing CMC and mAP
