@@ -4,4 +4,4 @@ Torchreid is a library built on PyTorch for deep-learning person re-identificati
 
 ## Train
 For example, to train an image reid model on Market1501 using MVP-Loss, you can do
-
+`python3 train_imgreid.py`
